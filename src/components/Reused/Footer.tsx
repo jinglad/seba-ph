@@ -69,7 +69,7 @@ const socialLinks = [
 const Footer = () => {
   return (
     <footer className="bg-[#26798C]">
-      <Container fixed sx={{ pt: 20, pb: 5 }}>
+      <div className="container mx-auto pt-20 pb-5">
         <Grid container spacing={4}>
           <Grid item xs={12} md={6} lg={4}>
             <h1 className="text-white text-2xl font-semibold">About Us</h1>
@@ -128,13 +128,21 @@ const Footer = () => {
                 <h1 className="text-white text-2xl font-semibold ml-5">
                   Contact Us
                 </h1>
-                <Box component="hr" className="mb-5 ml-5 mt-3 w-20 h-1 bg-white" />
+                <Box
+                  component="hr"
+                  className="mb-5 ml-5 mt-3 w-20 h-1 bg-white"
+                />
                 <div className="">
-                  <List dense={true} >
+                  <List dense={true}>
                     {socialLinks.map((item) => (
                       <ListItem key={item.id}>
-                        <ListItemIcon sx={{color:"white"}}>{item.icon}</ListItemIcon>
-                        <ListItemText sx={{color:"lightgray"}} primary={item.name} />
+                        <ListItemIcon sx={{ color: "white" }}>
+                          {item.icon}
+                        </ListItemIcon>
+                        <ListItemText
+                          sx={{ color: "lightgray" }}
+                          primary={item.name}
+                        />
                       </ListItem>
                     ))}
                   </List>
@@ -143,7 +151,7 @@ const Footer = () => {
             </div>
           </Grid>
         </Grid>
-      </Container>
+      </div>
     </footer>
   );
 };

@@ -1,4 +1,3 @@
-import React from "react";
 import { patientStories } from "../../staticData/about";
 import Footer from "../Reused/Footer";
 import Header from "../Reused/Header";
@@ -7,7 +6,7 @@ const About = () => {
   return (
     <div>
       <Header />
-      <div className="container mx-auto my-10">
+      <section className="container mx-auto my-10" id="about">
         <div className="flex items-center justify-center h-24 bg-secondary">
           <h1 className="text-4xl text-white font-semibold">What is Seba?</h1>
         </div>
@@ -111,7 +110,7 @@ const About = () => {
             </div>
           </div>
         </section>
-      </div>
+      </section>
       <Footer />
     </div>
   );

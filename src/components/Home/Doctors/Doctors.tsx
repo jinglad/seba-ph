@@ -3,8 +3,9 @@ import { v4 as uuidv4 } from "uuid";
 import MediaCard from "../../Reused/Card";
 import Slider from "react-slick";
 import { doctors } from "../../../staticData/doctors";
+import { Link } from "react-router-dom";
 
-export function SampleNextArrow(props:any) {
+export function SampleNextArrow(props: any) {
   const { className, style, onClick } = props;
   return (
     <Box
@@ -30,7 +31,7 @@ export function SampleNextArrow(props:any) {
   );
 }
 
-export function SamplePrevArrow(props:any) {
+export function SamplePrevArrow(props: any) {
   const { className, style, onClick } = props;
   return (
     <Box
@@ -56,50 +57,49 @@ export function SamplePrevArrow(props:any) {
   );
 }
 
+export const settings = {
+  autoplay: true,
+  dots: false,
+  arrows: true,
+  infinite: true,
+  speed: 500,
+  autoplaySpeed: 2000,
+  slidesToShow: 3,
+  slidesToScroll: 1,
+  initialSlide: 0,
+  // cssEase: "linear",
+  // centerMode: true,
+  // centerPadding: "50px",
+  pauseOnHover: true,
+  nextArrow: <SampleNextArrow />,
+  prevArrow: <SamplePrevArrow />,
+  responsive: [
+    {
+      breakpoint: 1200,
+      settings: {
+        slidesToShow: 2,
+        slidesToScroll: 1,
+        // infinite: true,
+        // dots: true,
+      },
+    },
+    {
+      breakpoint: 600,
+      settings: {
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        dots: true,
+        arrows: false,
+        // initialSlide: 2,
+        // arrows: true,
+        // nextArrow: <SampleNextArrow />,
+        // prevArrow: <SamplePrevArrow />,
+      },
+    },
+  ],
+};
+
 const Doctors = () => {
-
-  var settings = {
-    autoplay: true,
-    dots: false,
-    arrows: true,
-    infinite: true,
-    speed: 500,
-    autoplaySpeed: 2000,
-    slidesToShow: 3,
-    slidesToScroll: 1,
-    initialSlide: 0,
-    // cssEase: "linear",
-    // centerMode: true,
-    // centerPadding: "50px",
-    pauseOnHover: true,
-    nextArrow: <SampleNextArrow />,
-    prevArrow: <SamplePrevArrow />,
-    responsive: [
-      {
-        breakpoint: 1200,
-        settings: {
-          slidesToShow: 2,
-          slidesToScroll: 1,
-          // infinite: true,
-          // dots: true,
-        },
-      },
-      {
-        breakpoint: 600,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-          dots: true,
-          arrows: false,
-          // initialSlide: 2,
-          // arrows: true,
-          // nextArrow: <SampleNextArrow />,
-          // prevArrow: <SamplePrevArrow />,
-        },
-      },
-    ],
-  };
-
   return (
     <section className="py-10 bg-gray-200">
       <Container fixed>
@@ -114,13 +114,15 @@ const Doctors = () => {
         </div>
         <div className="mt-5">
           <Slider {...settings}>
-          {doctors.map((doctor: any) => (
+            {doctors.map((doctor) => (
               <div key={doctor.id} className="ml-5 cursor-pointer">
-                <MediaCard
-                  name={doctor.name}
-                  title={doctor.department}
-                  image={doctor.image}
-                />
+                <Link to={"/doctors/" + doctor.id}>
+                  <MediaCard
+                    name={doctor.name}
+                    title={doctor.department}
+                    image={doctor.image}
+                  />
+                </Link>
               </div>
             ))}
           </Slider>

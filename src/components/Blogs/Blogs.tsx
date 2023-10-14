@@ -1,5 +1,5 @@
 import { Box, CircularProgress, Typography } from "@mui/material";
-import React from "react";
+import React, { useEffect } from "react";
 import { useBlogs } from "../../hooks/useBlogs";
 import Footer from "../Reused/Footer";
 import Header from "../Reused/Header";
@@ -8,7 +8,9 @@ import BlogList from "./BlogList";
 const Blogs = () => {
   const { data: blogs, isLoading, isError } = useBlogs();
 
-  console.log({ blogs });
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <>

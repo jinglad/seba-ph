@@ -85,7 +85,7 @@ const HospitalBooking = () => {
             "url('/images/booking_header.png') no-repeat center center/cover",
         }}
       >
-        <Container fixed>
+        <div className="container mx-auto">
           <div className="flex justify-end items-center h-[38rem]">
             <div>
               <h1 className="text-6xl font-semibold">Book Appointment</h1>
@@ -105,14 +105,9 @@ const HospitalBooking = () => {
               </div>
             </div>
           </div>
-        </Container>
+        </div>
       </Box>
-      <Container
-        fixed
-        sx={{
-          my: 10,
-        }}
-      >
+      <div className="container mx-auto my-10">
         <div></div>
 
         <div className="w-[75%] mx-auto p-8 rounded-lg bg-light-primary">
@@ -294,7 +289,7 @@ const HospitalBooking = () => {
             </button>
           </form>
         </div>
-      </Container>
+      </div>
       <Footer />
     </div>
   );

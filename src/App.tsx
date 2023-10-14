@@ -34,6 +34,7 @@ import HospitalBooking from "./components/Booking/HospitalBooking";
 import MakeHospitalPayment from "./components/Payment/MakeHospitalPayment";
 import PaymentHospital from "./components/Payment/PaymentHospital";
 import MyHospitalAppointment from "./components/Appointments/MyHospitalAppointment";
+import Dashboard from "./components/Dashboard/Dashboard";
 
 function App() {
   const store = useStore();
@@ -126,6 +127,14 @@ function App() {
                   element={
                     <PrivateRoute>
                       <MyHospitalAppointment />
+                    </PrivateRoute>
+                  }
+                />
+                <Route
+                  path="/dashboard"
+                  element={
+                    <PrivateRoute>
+                      <Dashboard />
                     </PrivateRoute>
                   }
                 />

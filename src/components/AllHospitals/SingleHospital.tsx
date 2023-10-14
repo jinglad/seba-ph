@@ -15,6 +15,7 @@ const SingleHospital = () => {
 
   useEffect(() => {
     setHospital(hospitals.find((hospital: any) => hospital.id == id));
+    window.scrollTo(0, 0);
   }, []);
 
   const handleBookAppointment = (test: any) => {
@@ -54,7 +55,7 @@ const SingleHospital = () => {
             </div>
           </div>
         </section>
-        <Container fixed sx={{ my: 10 }}>
+        <div className="container mx-auto my-10">
           <Grid container>
             <Grid
               item
@@ -132,7 +133,7 @@ const SingleHospital = () => {
               ))}
             </div>
           </div>
-        </Container>
+        </div>
       </main>
       <Footer />
     </div>

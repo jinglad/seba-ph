@@ -43,7 +43,7 @@ const DoctorDetails = () => {
   return (
     <div>
       <Header />
-      <Container fixed sx={{ my: 10 }}>
+      <div className="container mx-auto my-10">
         <div
           className="py-10 px-8"
           style={{
@@ -142,7 +142,7 @@ const DoctorDetails = () => {
           </Grid>
         </div>
         <SuggestedDoctor />
-      </Container>
+      </div>
       <Footer />
     </div>
   );

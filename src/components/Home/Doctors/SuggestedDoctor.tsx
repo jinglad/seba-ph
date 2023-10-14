@@ -58,12 +58,7 @@ const SuggestedDoctor = () => {
   }, [id]);
 
   return (
-    <Container
-      fixed
-      sx={{
-        my: 10,
-      }}
-    >
+    <div className="container mx-auto my-10">
       <h1 className="text-2xl">Suggested Doctors</h1>
       <div className="mt-4">
         <Slider {...settings}>
@@ -82,7 +77,7 @@ const SuggestedDoctor = () => {
           ))}
         </Slider>
       </div>
-    </Container>
+    </div>
   );
 };
 

@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Footer from "../Reused/Footer";
 import Header from "../Reused/Header";
 import { useForm, SubmitHandler } from "react-hook-form";
@@ -29,6 +29,7 @@ const SignUp = () => {
     reset,
   } = useForm<Inputs>();
   const [isSuccess, setIsSuccess] = useState(false);
+  const navigate = useNavigate();
 
   const dispatch = useDispatch();
 
@@ -36,8 +37,8 @@ const SignUp = () => {
     createUser,
     {
       onSuccess: (data) => {
-        console.log(data);
         toast.success("Account Created Successfully");
+        navigate("/login");
         reset();
       },
       onError: (error: any) => {
@@ -61,7 +62,7 @@ const SignUp = () => {
     <div className="relative">
       <Header />
       {/* <button onClick={() => setIsSuccess(true)}>Open Modal</button> */}
-      <main>
+      <main className="min-h-[55vh]">
         <div className="flex flex-col items-center justify-center h-[32rem]">
           <h1 className="text-4xl font-semibold text-primary">Sign Up</h1>
           <h4 className="text-lg mt-2">

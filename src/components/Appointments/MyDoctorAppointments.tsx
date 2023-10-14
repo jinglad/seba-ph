@@ -16,7 +16,7 @@ const MyDoctorAppointments = () => {
   return (
     <div>
       <Header />
-      <Container fixed sx={{ my: 10 }}>
+      <div className="container mx-auto my-10 min-h-[43vh]">
         {isLoading ? (
           <Loader />
         ) : isError ? (
@@ -40,7 +40,7 @@ const MyDoctorAppointments = () => {
             </section>
           </div>
         )}
-      </Container>
+      </div>
       <Footer />
     </div>
   );

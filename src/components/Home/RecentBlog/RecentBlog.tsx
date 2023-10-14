@@ -1,6 +1,7 @@
 import { Box, Container, Grid } from "@mui/material";
 import { useBlogs } from "../../../hooks/useBlogs";
 import SingleBlog from "./SingleBlog";
+import { Link } from "react-router-dom";
 
 // const blogs = [
 //   {
@@ -24,7 +25,7 @@ import SingleBlog from "./SingleBlog";
 const RecentBlog = () => {
   const { data: blogs, isLoading, isError } = useBlogs();
   return (
-    <section className="py-10 bg-gray-200 -mt-5">
+    <section className="py-10 bg-gray-200 -mt-5" id="blogs">
       <Container fixed>
         <div>
           <h1 className="text-4xl font-semibold text-center text-primary uppercase">
@@ -69,6 +70,16 @@ const RecentBlog = () => {
             </>
           )}
         </Grid>
+        <div className="flex justify-center">
+          <Link to="/blogs">
+            <button
+              type="button"
+              className="text-primary underline font-medium  text-xl mt-5"
+            >
+              Show More Stories
+            </button>
+          </Link>
+        </div>
       </Container>
     </section>
   );

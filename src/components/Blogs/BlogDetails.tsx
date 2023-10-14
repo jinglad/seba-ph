@@ -24,50 +24,51 @@ const BlogDetails = () => {
           </p>
         </div>
       ) : (
-        <Container
-          fixed
-          sx={{
-            pb: 15,
-            mt: 10,
-            a: {
-              color: "#4287f5",
-            },
-            p: {
-              fontFamily: "'Poppins', sans-serif!important",
-            },
-          }}
-        >
-          <Typography variant="h3" sx={{ textAlign: "center", mb: 2 }}>
-            {data?.title?.rendered}
-          </Typography>
+        <div className="container mx-auto min-h-[43vh]">
           <Box
             sx={{
-              h3: {
-                fontFamily: "'Poppins', sans-serif!important",
-                fontSize: "1.2rem",
-                mt: 2,
-                mb: 1,
-                fontWeight: 600,
+              pb: 15,
+              mt: 10,
+              a: {
+                color: "#4287f5",
               },
-              h2: {
+              p: {
                 fontFamily: "'Poppins', sans-serif!important",
-                fontSize: "1.2rem",
-                mt: 2,
-                mb: 1,
-                fontWeight: 600,
-              },
-              figcaption: {
-                fontFamily: "'Poppins', sans-serif!important",
-                fontSize: "1rem",
-                fontWeight: 600,
-              },
-              img: {
-                mb: 4,
               },
             }}
-            dangerouslySetInnerHTML={{ __html: data?.content?.rendered }}
-          />
-        </Container>
+          >
+            <Typography variant="h3" sx={{ textAlign: "center", mb: 2 }}>
+              {data?.title?.rendered}
+            </Typography>
+            <Box
+              sx={{
+                h3: {
+                  fontFamily: "'Poppins', sans-serif!important",
+                  fontSize: "1.2rem",
+                  mt: 2,
+                  mb: 1,
+                  fontWeight: 600,
+                },
+                h2: {
+                  fontFamily: "'Poppins', sans-serif!important",
+                  fontSize: "1.2rem",
+                  mt: 2,
+                  mb: 1,
+                  fontWeight: 600,
+                },
+                figcaption: {
+                  fontFamily: "'Poppins', sans-serif!important",
+                  fontSize: "1rem",
+                  fontWeight: 600,
+                },
+                img: {
+                  mb: 4,
+                },
+              }}
+              dangerouslySetInnerHTML={{ __html: data?.content?.rendered }}
+            />
+          </Box>
+        </div>
       )}
       <Footer />
     </div>

@@ -29,7 +29,7 @@ const MakePayment = () => {
   return (
     <div>
       <Header />
-      <Container fixed>
+      <div className="container mx-auto">
         <Grid
           container
           spacing={4}
@@ -105,7 +105,7 @@ const MakePayment = () => {
             </div>
           </Grid>
         </Grid>
-      </Container>
+      </div>
       <Footer />
     </div>
   );

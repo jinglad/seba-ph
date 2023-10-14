@@ -44,7 +44,9 @@ const Achievement = () => {
             {rewards.map((reward) => (
               <Grid item xs={12} md={6} lg={3} key={reward.id}>
                 <div className="flex flex-col items-center justify-center">
-                  <h1 className="text-4xl font-semibold text-primary">{reward.count}+</h1>
+                  <h1 className="text-4xl font-semibold text-primary">
+                    {reward.count}+
+                  </h1>
                   <h4 className="text-lg mt-2">{reward.title}</h4>
                 </div>
               </Grid>

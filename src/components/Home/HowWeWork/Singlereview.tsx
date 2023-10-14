@@ -9,23 +9,29 @@ import {
 
 const Singlereview = ({ name, review, star, image }: any) => {
   return (
-    <Card>
-      <Box sx={{
-        p: 4,
-        bgcolor: "white",
-        position: "relative",
-        "&::after": {
-          content: '""',
-          position: "absolute",
-          bottom: "-18px",
-          left: "45%",
-          width: "0",
-          height: "0",
-          borderLeft: "19px solid transparent",
-          borderRight: "19px solid transparent",
-          borderTop: "19px solid white",
-        }
-      }}>
+    <Card
+      sx={{
+        maxWidth: "350px",
+      }}
+    >
+      <Box
+        sx={{
+          p: 4,
+          bgcolor: "white",
+          position: "relative",
+          "&::after": {
+            content: '""',
+            position: "absolute",
+            bottom: "-18px",
+            left: "45%",
+            width: "0",
+            height: "0",
+            borderLeft: "19px solid transparent",
+            borderRight: "19px solid transparent",
+            borderTop: "19px solid white",
+          },
+        }}
+      >
         <Typography variant="body2" color="text.secondary">
           {review}
         </Typography>

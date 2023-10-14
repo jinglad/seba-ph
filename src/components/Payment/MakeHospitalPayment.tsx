@@ -20,7 +20,7 @@ const MakeHospitalPayment = () => {
   return (
     <div>
       <Header />
-      <Container fixed>
+      <div className="container mx-auto">
         <Grid
           container
           spacing={4}
@@ -98,7 +98,7 @@ const MakeHospitalPayment = () => {
             </div>
           </Grid>
         </Grid>
-      </Container>
+      </div>
       <Footer />
     </div>
   );

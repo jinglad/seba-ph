@@ -12,7 +12,7 @@ import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
 import SearchIcon from "@mui/icons-material/Search";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { signOut } from "firebase/auth";
 import { auth } from "../../firebase-config";
@@ -21,6 +21,7 @@ import { v4 as uuidv4 } from "uuid";
 import { Popover } from "@mui/material";
 import { AccountCircle } from "@mui/icons-material";
 import { useCookies } from "react-cookie";
+import { Link as ScrollLink, scroller } from "react-scroll";
 
 const pages = [
   {
@@ -38,15 +39,21 @@ const pages = [
     name: "Hospitals",
     route: "/hospitals",
   },
-  {
-    id: uuidv4(),
-    name: "Blogs",
-    route: "/blogs",
-  },
+  // {
+  //   id: uuidv4(),
+  //   name: "Blogs",
+  //   route: "/blogs",
+  // },
   {
     id: uuidv4(),
     name: "About",
     route: "/about",
+  },
+  {
+    id: uuidv4(),
+    name: "Blogs",
+    route: "",
+    to: "blogs",
   },
 ];
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
@@ -86,6 +93,10 @@ const Header = () => {
     setAnchorElUser(null);
   };
 
+  const location = useLocation();
+
+  console.log(location);
+
   const handleLogout = () => {
     signOut(auth).then(() => {
       dispatch(setUser({}));
@@ -93,6 +104,19 @@ const Header = () => {
       // removeCookie("seba-token");
       setAnchorElLogout(null);
     });
+  };
+
+  const scrollTarget = (target: string) => {
+    console.log(target);
+    scroller.scrollTo(target, { smooth: true });
+  };
+
+  const scrollToPage = async (target: string) => {
+    if (location.pathname !== "/") {
+      navigate("/");
+      await new Promise((resolve) => setTimeout(resolve, 500));
+    }
+    scrollTarget(target);
   };
 
   return (
@@ -104,7 +128,7 @@ const Header = () => {
         py: 2,
       }}
     >
-      <Container fixed>
+      <div className="container mx-auto">
         <Toolbar disableGutters>
           <Typography
             variant="h6"
@@ -156,17 +180,25 @@ const Header = () => {
                 display: { xs: "block", md: "none" },
               }}
             >
-              {pages.map((page) => (
-                <MenuItem
-                  key={page.id}
-                  onClick={() => {
-                    handleCloseNavMenu();
-                    navigate(page.route);
-                  }}
-                >
-                  <Typography textAlign="center">{page.name}</Typography>
-                </MenuItem>
-              ))}
+              {pages.map((page) =>
+                page.to ? (
+                  <MenuItem
+                    key={page.id}
+                    onClick={() => {
+                      handleCloseNavMenu();
+                      scrollToPage(page.to);
+                    }}
+                  >
+                    <Typography textAlign="center">{page.name}</Typography>
+                  </MenuItem>
+                ) : (
+                  <MenuItem key={page.id} onClick={handleCloseNavMenu}>
+                    <Link to={page.route}>
+                      <Typography textAlign="center">{page.name}</Typography>
+                    </Link>
+                  </MenuItem>
+                )
+              )}
             </Menu>
           </Box>
           <Typography
@@ -191,25 +223,44 @@ const Header = () => {
             />
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
-            {pages.map((page) => (
-              <Button
-                key={page.id}
-                onClick={() => {
-                  handleCloseNavMenu();
-                  navigate(page.route);
-                }}
-                sx={{
-                  my: 2,
-                  color: "black",
-                  display: "block",
-                  mx: 1,
-                  fontSize: "16px",
-                  textTransform: "capitalize",
-                }}
-              >
-                {page.name}
-              </Button>
-            ))}
+            {pages.map((page) =>
+              page.to ? (
+                <Button
+                  key={page.id}
+                  onClick={() => {
+                    scrollToPage(page.to);
+                  }}
+                  sx={{
+                    my: 2,
+                    color: "black",
+                    display: "block",
+                    mx: 1,
+                    fontSize: "16px",
+                    textTransform: "capitalize",
+                  }}
+                >
+                  {page.name}
+                </Button>
+              ) : (
+                <Button
+                  key={page.id}
+                  onClick={() => {
+                    handleCloseNavMenu();
+                    navigate(page.route);
+                  }}
+                  sx={{
+                    my: 2,
+                    color: "black",
+                    display: "block",
+                    mx: 1,
+                    fontSize: "16px",
+                    textTransform: "capitalize",
+                  }}
+                >
+                  {page.name}
+                </Button>
+              )
+            )}
           </Box>
 
           <Box>
@@ -218,13 +269,6 @@ const Header = () => {
             </Button> */}
             {token ? (
               <>
-                {/* <span className="text-dark">{user?.fullName}</span>
-                <button
-                  onClick={handleLogout}
-                  className="text-primary  border-2 border-primary rounded px-3 py-1 mx-2 active:translate-y-1"
-                >
-                  Logout
-                </button> */}
                 <IconButton
                   size="large"
                   aria-label="account of current user"
@@ -276,7 +320,11 @@ const Header = () => {
                 {user?.name}
               </Typography>
 
-              <MenuItem
+              <Link to="/dashboard">
+                <MenuItem>Dashboard</MenuItem>
+              </Link>
+
+              {/* <MenuItem
                 onClick={() => {
                   setAnchorElLogout(null);
                   navigate("/profile");
@@ -303,7 +351,7 @@ const Header = () => {
                 <Typography textAlign="center">
                   Hospitals Appointments
                 </Typography>
-              </MenuItem>
+              </MenuItem> */}
 
               <MenuItem
                 onClick={() => {
@@ -354,7 +402,7 @@ const Header = () => {
             </Menu>
           </Box> */}
         </Toolbar>
-      </Container>
+      </div>
     </AppBar>
   );
 };

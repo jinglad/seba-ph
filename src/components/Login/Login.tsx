@@ -29,25 +29,22 @@ const Login = () => {
   const navigate = useNavigate();
   const location = useLocation();
 
-  const { mutateAsync: getUser, isLoading: isGettingUser } = useMutation(
-    login,
-    {
-      onSuccess: (data: any) => {
-        console.log(data);
-        dispatch(setUser(data.user));
-        dispatch(setToken(data.accessToken));
-        toast.success("Loggedin Successfully");
-        navigate(location.state?.from || "/", { replace: true });
-        reset();
-      },
-      onError: (error: any) => {
-        console.error(error);
-        console.log(error);
-        toast.error(error.message);
-        // reset();
-      },
-    }
-  );
+  const { mutate: getUser, isLoading: isGettingUser } = useMutation(login, {
+    onSuccess: (data: any) => {
+      console.log(data);
+      dispatch(setUser(data.user));
+      dispatch(setToken(data.accessToken));
+      // toast.success("Loggedin Successfully");
+      navigate(location.state?.from || "/", { replace: true });
+      reset();
+    },
+    onError: (error: any) => {
+      console.error(error);
+      console.log(error);
+      toast.error(error?.response?.data?.msg || error.message);
+      // reset();
+    },
+  });
 
   const onSubmit: SubmitHandler<Inputs> = async (data) => {
     const user: {
@@ -63,7 +60,7 @@ const Login = () => {
   return (
     <div className="relative">
       <Header />
-      <main>
+      <main className="min-h-[55vh]">
         <div className="flex flex-col items-center justify-center h-[32rem]">
           <h1 className="text-4xl font-semibold text-primary">Login</h1>
           <h4 className="text-lg mt-2">Login to get access to our services</h4>
