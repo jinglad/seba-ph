@@ -1,0 +1,26 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+li {
+  font-size: 1rem;
+}
+
+@layer components {
+  .login-input {
+    @apply bg-sky-50 rounded outline-none p-2 w-3/4;
+  }
+  .group-details-sidebar-menu {
+    @apply m-0 font-semibold text-center border-b-2 border-gray-300 text-base cursor-pointer hover:bg-blue-400 rounded p-2 hover:text-white mb-2;
+  }
+  .notification-menu {
+    @apply text-black p-3 rounded hover:bg-slate-200 hover:text-black;
+  }
+  .menu-item {
+    @apply p-2 px-3 bg-indigo-500 rounded font-medium text-white m-2 cursor-pointer;
+  }
+
+  .doctor-details-right-section-subsection {
+    @apply p-5 rounded-lg bg-light-primary text-center w-full;
+  }
+}
