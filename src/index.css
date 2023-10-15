@@ -24,3 +24,30 @@ li {
     @apply p-5 rounded-lg bg-light-primary text-center w-full;
   }
 }
+
+.dashboard-icon-container {
+  overflow: hidden;
+}
+
+.dashboard-icon {
+  width: 10rem;
+  height: 10rem;
+  position: absolute;
+  right: -10px;
+  top: 20px;
+  transform: rotate(325deg);
+  opacity: 0.3;
+}
+
+.dashboard-icon-container:hover .dashboard-icon {  
+  width: 5rem;
+  height: 5rem;
+  position: absolute;
+  right: 0;
+  top: 10px;
+  transform: rotate(360deg);
+  opacity: 1;
+  /* top: 0; */
+  /* transform: rotate(325deg); */
+  /* opacity: 0.3; */
+}
