@@ -57,6 +57,8 @@ export function SamplePrevArrow(props: any) {
   );
 }
 
+const isSmallScreen = window.innerWidth < 900;
+
 export const settings = {
   autoplay: true,
   dots: false,
@@ -84,7 +86,7 @@ export const settings = {
       },
     },
     {
-      breakpoint: 600,
+      breakpoint: 900,
       settings: {
         slidesToShow: 1,
         slidesToScroll: 1,
@@ -92,8 +94,6 @@ export const settings = {
         arrows: false,
         // initialSlide: 2,
         // arrows: true,
-        // nextArrow: <SampleNextArrow />,
-        // prevArrow: <SamplePrevArrow />,
       },
     },
   ],
@@ -102,7 +102,14 @@ export const settings = {
 const Doctors = () => {
   return (
     <section className="py-10 bg-gray-200">
-      <Container fixed>
+      <Container
+        fixed
+        sx={{
+          ".slick-dots": {
+            bottom: "-50px",
+          },
+        }}
+      >
         <div>
           <h1 className="text-4xl font-semibold text-center text-primary uppercase">
             MEET OUR TEAM OF SPECIALISTS
@@ -115,7 +122,10 @@ const Doctors = () => {
         <div className="mt-5">
           <Slider {...settings}>
             {doctors.map((doctor) => (
-              <div key={doctor.id} className="ml-5 cursor-pointer">
+              <div
+                key={doctor.id}
+                className="lg:ml-5 cursor-pointer max-lg:!flex justify-center "
+              >
                 <Link to={"/doctors/" + doctor.id}>
                   <MediaCard
                     name={doctor.name}

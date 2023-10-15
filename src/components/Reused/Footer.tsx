@@ -71,26 +71,38 @@ const Footer = () => {
     <footer className="bg-[#26798C]">
       <div className="container mx-auto pt-20 pb-5">
         <Grid container spacing={4}>
-          <Grid item xs={12} md={6} lg={4}>
-            <h1 className="text-white text-2xl font-semibold">About Us</h1>
-            <Box component="hr" className="mb-5 mt-3 w-20 h-1 bg-white" />
-            <p className="text-white text-base">
-              Build a website as impressive as your ultrauniq with this
-              attractive and professional ultrauniq company template.
-            </p>
-            <div className=" bg-white w-3/4 my-5">
-              <div className="flex justify-between items-center">
-                <div>
-                  <input
-                    type="text"
-                    placeholder="Email Address"
-                    className="py-3 pl-3 bg-transparent outline-none border-0 text-white"
-                  />
-                </div>
-                <div>
-                  <button className="bg-primary py-3 px-2 cursor-pointer">
-                    <ArrowForwardIcon sx={{ color: "white" }} />
-                  </button>
+          <Grid
+            item
+            xs={12}
+            md={6}
+            lg={4}
+            sx={{
+              display: "flex",
+              justifyContent: "center",
+              bgcolor: "#26798C",
+            }}
+          >
+            <div className="max-md:px-5">
+              <h1 className="text-white text-2xl font-semibold">About Us</h1>
+              <Box component="hr" className="mb-5 mt-3 w-20 h-1 bg-white" />
+              <p className="text-white text-base">
+                Build a website as impressive as your ultrauniq with this
+                attractive and professional ultrauniq company template.
+              </p>
+              <div className=" bg-white w-3/4 my-5">
+                <div className="flex justify-between items-center">
+                  <div>
+                    <input
+                      type="text"
+                      placeholder="Email Address"
+                      className="py-3 pl-3 bg-transparent outline-none border-0 text-white"
+                    />
+                  </div>
+                  <div>
+                    <button className="bg-primary py-3 px-2 cursor-pointer">
+                      <ArrowForwardIcon sx={{ color: "white" }} />
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>
@@ -125,12 +137,12 @@ const Footer = () => {
           <Grid item xs={12} md={6} lg={4}>
             <div className="flex justify-center items-center">
               <div>
-                <h1 className="text-white text-2xl font-semibold ml-5">
+                <h1 className="text-white text-2xl font-semibold md:ml-5">
                   Contact Us
                 </h1>
                 <Box
                   component="hr"
-                  className="mb-5 ml-5 mt-3 w-20 h-1 bg-white"
+                  className="mb-5 md:ml-5 mt-3 w-20 h-1 bg-white"
                 />
                 <div className="">
                   <List dense={true}>

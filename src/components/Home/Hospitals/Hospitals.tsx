@@ -123,7 +123,7 @@ const Hospitals = () => {
         },
       },
       {
-        breakpoint: 600,
+        breakpoint: 900,
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
@@ -140,7 +140,14 @@ const Hospitals = () => {
 
   return (
     <section className="py-10 bg-gray-200">
-      <Container fixed>
+      <Container
+        fixed
+        sx={{
+          ".slick-dots": {
+            bottom: "-40px",
+          },
+        }}
+      >
         <div>
           <h1 className="text-4xl font-semibold text-center text-primary uppercase">
             FIND THE BEST HOSPITALS HERE
@@ -153,7 +160,10 @@ const Hospitals = () => {
         <div className="mt-5">
           <Slider {...settings}>
             {hospitals.map((hospital) => (
-              <div key={hospital.id} className="ml-5 cursor-pointer">
+              <div
+                key={hospital.id}
+                className="lg:ml-5 cursor-pointer max-lg:!flex justify-center"
+              >
                 <Link to={"/hospitals/" + hospital.id}>
                   <MediaCard
                     name={hospital.name}

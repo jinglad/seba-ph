@@ -34,7 +34,7 @@ const WhatAreWe = () => {
   return (
     <section className="pt-10">
       <Container fixed>
-        <Grid container spacing={4}>
+        <Grid container spacing={4} sx={{width: "100%"}}>
           <Grid item xs={12} md={6} 
             sx={{
               display: "flex",
@@ -64,7 +64,11 @@ const WhatAreWe = () => {
             </div>
             </div>
           </Grid>
-          <Grid item xs={12} md={6}>
+          <Grid item xs={12} md={6} sx={{
+              display: "flex",
+              width: "100%",
+              justifyContent: "center",
+          }}>
             <img src="/images/what-we-are.png" alt="what-are-we" className="w-fit" />
           </Grid>
         </Grid>

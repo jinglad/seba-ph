@@ -95,8 +95,6 @@ const Header = () => {
 
   const location = useLocation();
 
-  console.log(location);
-
   const handleLogout = () => {
     signOut(auth).then(() => {
       dispatch(setUser({}));
@@ -107,7 +105,6 @@ const Header = () => {
   };
 
   const scrollTarget = (target: string) => {
-    console.log(target);
     scroller.scrollTo(target, { smooth: true });
   };
 
@@ -204,8 +201,8 @@ const Header = () => {
           <Typography
             variant="h5"
             noWrap
-            component="a"
-            href=""
+            component={Link}
+            to="/"
             sx={{
               mr: 2,
               display: { xs: "flex", md: "none" },

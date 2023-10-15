@@ -4,11 +4,11 @@ import { useNavigate } from "react-router-dom";
 const Banner = () => {
   const navigate = useNavigate();
   return (
-    <section className="bg-[#F5F5F5] h-[363px]">
+    <section className="bg-[#F5F5F5] lg:h-[363px]">
       <Container fixed>
         <Grid container spacing={2} pt={2}>
-          <Grid item xs={12} md={7}>
-            <div className="flex justify-center items-center h-[350px]">
+          <Grid item xs={12} lg={7} pb={5}>
+            <div className="flex justify-center items-center h-full">
               <div>
                 <h1 className="text-primary text-[50px] font-semibold leading-none">
                   WE CARE <br /> ABOUT YOUR <br /> HEALTH
@@ -27,11 +27,21 @@ const Banner = () => {
               </div>
             </div>
           </Grid>
-          <Grid item xs={12} md={5}>
+          <Grid
+            item
+            xs={12}
+            lg={5}
+            sx={{
+              display: {
+                xs: "none",
+                lg: "block",
+              },
+            }}
+          >
             <div className="text-center">
               <img
                 src="/images/banner-image.png"
-                alt="Banner Image"
+                alt="Banner"
                 className="mt-4"
               />
             </div>

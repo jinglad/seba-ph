@@ -60,7 +60,14 @@ const HowWeWork = () => {
           {reviews.map((review) => (
             <Box
               sx={{
-                ml: 2,
+                ml: {
+                  lg: 2,
+                },
+                display: {
+                  xs: "flex !important",
+                  lg: "block !important",
+                },
+                justifyContent: "center",
               }}
             >
               <Singlereview {...review} />

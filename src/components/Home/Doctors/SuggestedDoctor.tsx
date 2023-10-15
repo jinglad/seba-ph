@@ -5,6 +5,7 @@ import Slider from "react-slick";
 import { doctors } from "../../../staticData/doctors";
 import MediaCard from "../../Reused/Card";
 import { SampleNextArrow, SamplePrevArrow } from "./Doctors";
+import { Box } from "@mui/material";
 
 const SuggestedDoctor = () => {
   const navigate = useNavigate();
@@ -37,7 +38,7 @@ const SuggestedDoctor = () => {
         },
       },
       {
-        breakpoint: 600,
+        breakpoint: 900,
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
@@ -60,12 +61,19 @@ const SuggestedDoctor = () => {
   return (
     <div className="container mx-auto my-10">
       <h1 className="text-2xl">Suggested Doctors</h1>
-      <div className="mt-4">
+      <Box
+        sx={{
+          ".slick-dots": {
+            bottom: "-40px",
+          },
+          mt: 2,
+        }}
+      >
         <Slider {...settings}>
           {suggestedDoctors?.map((doctor: any) => (
             <div
               key={doctor.id}
-              className="ml-3 cursor-pointer active:scale-95 transition duration-150"
+              className="ml-3 cursor-pointer active:scale-95 transition duration-150 max-lg:!flex justify-center"
               onClick={() => navigate(`/doctors/${doctor.id}`)}
             >
               <MediaCard
@@ -76,7 +84,7 @@ const SuggestedDoctor = () => {
             </div>
           ))}
         </Slider>
-      </div>
+      </Box>
     </div>
   );
 };

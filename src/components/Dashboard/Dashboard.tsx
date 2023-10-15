@@ -24,7 +24,24 @@ const Dashboard = () => {
             </p>
           </Link>
         </div>
-        <div>main</div>
+
+        <div className="flex gap-4">
+          <Link to="/profile">
+            <div className="p-5 shadow min-w-[10rem]">
+              <p>Profile</p>
+            </div>
+          </Link>
+          <Link to="/my-appointments/doctors">
+            <div className="p-5 shadow">
+              <p>Doctor's Appointment</p>
+            </div>
+          </Link>
+          <Link to="/my-appointments/hospitals">
+            <div className="p-5 shadow">
+              <p>Hospital's Appointment</p>
+            </div>
+          </Link>
+        </div>
       </main>
       <Footer />
     </>
