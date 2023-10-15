@@ -12,7 +12,7 @@ const SuggestedDoctor = () => {
   const { id } = useParams();
   const [suggestedDoctors, setSuggestedDoctors] = React.useState<any>([]);
   var settings = {
-    autoplay: true,
+    autoplay: false,
     dots: false,
     arrows: true,
     infinite: true,
@@ -73,7 +73,7 @@ const SuggestedDoctor = () => {
           {suggestedDoctors?.map((doctor: any) => (
             <div
               key={doctor.id}
-              className="ml-3 cursor-pointer active:scale-95 transition duration-150 max-lg:!flex justify-center"
+              className="cursor-pointer !flex justify-center "
               onClick={() => navigate(`/doctors/${doctor.id}`)}
             >
               <MediaCard

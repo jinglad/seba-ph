@@ -35,6 +35,9 @@ import MakeHospitalPayment from "./components/Payment/MakeHospitalPayment";
 import PaymentHospital from "./components/Payment/PaymentHospital";
 import MyHospitalAppointment from "./components/Appointments/MyHospitalAppointment";
 import Dashboard from "./components/Dashboard/Dashboard";
+import Profile from "./components/Profile/Profile";
+import AdminRoute from "./components/PrivateRoute/AdminRoute";
+import Users from "./components/Admin/Users";
 
 function App() {
   const store = useStore();
@@ -136,6 +139,22 @@ function App() {
                     <PrivateRoute>
                       <Dashboard />
                     </PrivateRoute>
+                  }
+                />
+                <Route
+                  path="/profile"
+                  element={
+                    <PrivateRoute>
+                      <Profile />
+                    </PrivateRoute>
+                  }
+                />
+                <Route
+                  path="/admin/users"
+                  element={
+                    <AdminRoute>
+                      <Users />
+                    </AdminRoute>
                   }
                 />
                 <Route path="*" element={<NoRoute />} />

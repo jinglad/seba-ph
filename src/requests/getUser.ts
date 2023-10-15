@@ -24,10 +24,23 @@ export const getUser = async (token: string, email: string) => {
   }
 };
 
+export const getUsers = async (token: string) => {
+  try {
+    const { data } = await Axios.get("/users", {
+      headers: {
+        authorization: `Bearer ${token}`,
+      },
+    });
+    return data;
+  } catch (error: any) {
+    return error.response;
+  }
+};
+
 export const getTokenfn = async (email: string) => {
   try {
     const { data } = await Axios.post("/login", { email });
-    console.log(data)
+    console.log(data);
     return data;
   } catch (error: any) {
     return error.response;

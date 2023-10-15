@@ -1,13 +1,16 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { IUser } from "../Admin/Users";
 
 const initialState = {
   user: {},
+  users: [] as any,
   admin: [],
   email: "",
   doctorAppointment: {},
   token: "",
   appointmentID: "",
   hospitalAppointment: {},
+  profileData: {},
 };
 
 const userSlice: any = createSlice({
@@ -35,6 +38,19 @@ const userSlice: any = createSlice({
     setHospitalAppointment: (state, action) => {
       state.hospitalAppointment = action.payload;
     },
+    setProfileData: (state, action) => {
+      state.profileData = action.payload;
+    },
+    makeAdmin: (state, action) => {
+      state.users = state?.users?.map((user: any) => {
+        if (user._id === action.payload?.id) {
+          return { ...user, role: "admin" };
+        } else return user;
+      });
+    },
+    setUsers: (state, action) => {
+      state.users = action.payload;
+    },
   },
 });
 
@@ -46,6 +62,9 @@ export const {
   setToken,
   setAppointmentId,
   setHospitalAppointment,
+  setProfileData,
+  makeAdmin,
+  setUsers,
 } = userSlice.actions;
 
 export default userSlice.reducer;

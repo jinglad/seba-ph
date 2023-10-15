@@ -21,7 +21,7 @@ const MyDoctorAppointments = () => {
         <div className="flex gap-4">
           <DashboardMenus />
 
-          <div className="">
+          <>
             {isLoading ? (
               <Loader />
             ) : isError ? (
@@ -33,7 +33,7 @@ const MyDoctorAppointments = () => {
                 You have no appointments yet.
               </h1>
             ) : (
-              <div>
+              <div className="w-full">
                 <h1 className="text-3xl font-semibold my-5">
                   Doctor Appointments
                 </h1>
@@ -47,7 +47,7 @@ const MyDoctorAppointments = () => {
                 </section>
               </div>
             )}
-          </div>
+          </>
         </div>
       </div>
       <Footer />
