@@ -6,7 +6,6 @@ import {
   Rating,
   Typography,
 } from "@mui/material";
-import { Container } from "@mui/system";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
@@ -23,6 +22,7 @@ const DoctorDetails = () => {
   const [doctor, setDoctor] = useState<any>(null);
   const dispatch = useDispatch();
   const { user } = useSelector((state: any) => state.user);
+  const isAdmin = user?.role === "admin";
 
   useEffect(() => {
     const currentDoctor: any = doctors.find((doctor: any) => doctor.id == id);
@@ -141,7 +141,7 @@ const DoctorDetails = () => {
             </Grid>
           </Grid>
         </div>
-        <SuggestedDoctor />
+        {isAdmin ? null : <SuggestedDoctor />}
       </div>
       <Footer />
     </div>

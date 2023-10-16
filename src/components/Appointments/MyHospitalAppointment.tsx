@@ -1,5 +1,3 @@
-import { Container } from "@mui/material";
-import React from "react";
 import { useHospitalAppointment } from "../../hooks/useHospitalAppointment";
 import Footer from "../Reused/Footer";
 import Header from "../Reused/Header";

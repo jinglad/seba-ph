@@ -1,16 +1,16 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import Footer from "../Reused/Footer";
 import Header from "../Reused/Header";
 import { useSelector } from "react-redux";
 
 const Dashboard = () => {
   const user = useSelector((state: any) => state.user.user);
-  console.log("from dashboard: ", user);
+  const isAdmin = user?.role === "admin";
   return (
     <>
       <Header />
       <main className="min-h-[55vh] container mx-auto my-10">
-        {user.role === "admin" ? (
+        {isAdmin ? (
           <div className="grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-3 gap-4">
             <div className="grid grid-cols-2 gap-4 w-full">
               <Link
@@ -34,7 +34,7 @@ const Dashboard = () => {
                 </div>
 
                 <div className="text-base text-center font-semibold">
-                  Doctor's
+                  Doctors
                 </div>
               </Link>
             </div>
@@ -48,7 +48,7 @@ const Dashboard = () => {
                 </div>
 
                 <div className="text-base text-center font-semibold">
-                  Doctor's
+                  Doctor's Bookings
                 </div>
               </Link>
             </div>
@@ -138,23 +138,110 @@ const Dashboard = () => {
 export default Dashboard;
 
 export const DashboardMenus = () => {
+  const location = useLocation();
+  const user = useSelector((state: any) => state.user.user);
+  const isAdmin = user?.role === "admin";
   return (
     <div className="px-5 shadow-md w-80 h-80">
-      <Link to="/profile">
-        <p className="my-3 hover:underline hover:cursor-pointer hover:text-primary">
-          Profile
-        </p>
-      </Link>
-      <Link to="/my-appointments/doctors">
-        <p className="my-3 hover:underline hover:cursor-pointer hover:text-primary">
-          Doctor's Appointment
-        </p>
-      </Link>
-      <Link to="/my-appointments/hospitals">
-        <p className="my-3 hover:underline hover:cursor-pointer hover:text-primary">
-          Hospital's Appointment
-        </p>
-      </Link>
+      {isAdmin ? (
+        <>
+          <Link
+            to="/admin/users"
+            style={{
+              color: location.pathname === "/admin/users" ? "#3DA7AB" : "",
+            }}
+          >
+            <p className="my-3 hover:underline hover:cursor-pointer hover:text-primary">
+              Users
+            </p>
+          </Link>
+          <Link
+            to="/admin/doctors"
+            style={{
+              color: location.pathname === "/admin/doctors" ? "#3DA7AB" : "",
+            }}
+          >
+            <p className="my-3 hover:underline hover:cursor-pointer hover:text-primary">
+              Doctors
+            </p>
+          </Link>
+          <Link
+            to="/admin/doctors-bookings"
+            style={{
+              color:
+                location.pathname === "/admin/doctors-bookings"
+                  ? "#3DA7AB"
+                  : "",
+            }}
+          >
+            <p className="my-3 hover:underline hover:cursor-pointer hover:text-primary">
+              Doctor's Bookings
+            </p>
+          </Link>
+          <Link
+            to="/admin/hospitals"
+            style={{
+              color: location.pathname === "/admin/hospitals" ? "#3DA7AB" : "",
+            }}
+          >
+            <p className="my-3 hover:underline hover:cursor-pointer hover:text-primary">
+              Hospitals
+            </p>
+          </Link>
+          <Link
+            to="/admin/hospitals-bookings"
+            style={{
+              color:
+                location.pathname === "/admin/hospitals-bookings"
+                  ? "#3DA7AB"
+                  : "",
+            }}
+          >
+            <p className="my-3 hover:underline hover:cursor-pointer hover:text-primary">
+              Hospital's Bookings
+            </p>
+          </Link>
+        </>
+      ) : (
+        <>
+          <Link
+            to="/profile"
+            style={{
+              color: location.pathname === "/profile" ? "#3DA7AB" : "",
+            }}
+          >
+            <p className="my-3 hover:underline hover:cursor-pointer hover:text-primary">
+              Profile
+            </p>
+          </Link>
+          <Link
+            to="/my-appointments/doctors"
+            style={{
+              color:
+                location.pathname === "/my-appointments/doctors"
+                  ? "#3DA7AB"
+                  : "",
+            }}
+          >
+            <p className="my-3 hover:underline hover:cursor-pointer hover:text-primary">
+              Doctor's Appointment
+            </p>
+          </Link>
+          <Link
+            to="/my-appointments/hospitals"
+            style={{
+              color:
+                location.pathname === "/my-appointments/hospitals"
+                  ? "#3DA7AB"
+                  : "",
+            }}
+          >
+            <p className="my-3 hover:underline hover:cursor-pointer hover:text-primary">
+              Hospital's Appointment
+            </p>
+          </Link>
+        </>
+      )}
     </div>
   );
 };

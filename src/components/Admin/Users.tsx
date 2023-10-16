@@ -16,6 +16,7 @@ import {
 import { makeAdmin } from "../redux/userSlice";
 import React from "react";
 import ConfirmModal from "../Reused/confirmModal";
+import { DashboardMenus } from "../Dashboard/Dashboard";
 
 export interface IUser {
   _id: string;
@@ -47,54 +48,59 @@ const Users = () => {
   return (
     <>
       <Header />
-      <main className="container mx-auto my-10 min-h-[50vh]">
-        {isLoading ? (
-          <div className="flex justify-center items-center h-full w-full">
-            <CircularProgress />
-          </div>
-        ) : (
-          <div>
-            <h1 className="text-2xl font-bold">Users</h1>
-            <TableContainer component={Paper}>
-              <Table sx={{ minWidth: 650 }} aria-label="simple table">
-                <TableHead>
-                  <TableRow>
-                    <TableCell>Name</TableCell>
-                    <TableCell align="center">Email</TableCell>
-                    <TableCell align="center">Role</TableCell>
-                    <TableCell align="right">Actions</TableCell>
-                  </TableRow>
-                </TableHead>
-                <TableBody>
-                  {users?.map((row: IUser) => (
-                    <TableRow
-                      key={row.name}
-                      sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
-                    >
-                      <TableCell component="th" scope="row">
-                        {row.name}
-                      </TableCell>
-                      <TableCell align="center">{row.email}</TableCell>
-                      <TableCell align="center">{row.role}</TableCell>
-                      <TableCell align="right">
-                        <Button
-                          variant="contained"
-                          color="primary"
-                          onClick={() => {
-                            setOpen(true);
-                            setId(row._id);
-                          }}
-                        >
-                          Make Admin
-                        </Button>
-                      </TableCell>
+      <main className="container mx-auto my-10 min-h-[50vh] flex gap-4">
+        <DashboardMenus />
+        <div className="w-full">
+          {isLoading ? (
+            <div className="flex justify-center items-center h-full w-full">
+              <CircularProgress />
+            </div>
+          ) : (
+            <div className="w-full">
+              <h1 className="text-2xl font-bold">Users</h1>
+              <TableContainer component={Paper} className="w-full">
+                <Table sx={{ minWidth: 650 }} aria-label="simple table">
+                  <TableHead>
+                    <TableRow>
+                      <TableCell>Name</TableCell>
+                      <TableCell align="center">Email</TableCell>
+                      <TableCell align="center">Role</TableCell>
+                      <TableCell align="right">Actions</TableCell>
                     </TableRow>
-                  ))}
-                </TableBody>
-              </Table>
-            </TableContainer>
-          </div>
-        )}
+                  </TableHead>
+                  <TableBody>
+                    {users?.map((row: IUser) => (
+                      <TableRow
+                        key={row.name}
+                        sx={{
+                          "&:last-child td, &:last-child th": { border: 0 },
+                        }}
+                      >
+                        <TableCell component="th" scope="row">
+                          {row.name}
+                        </TableCell>
+                        <TableCell align="center">{row.email}</TableCell>
+                        <TableCell align="center">{row.role}</TableCell>
+                        <TableCell align="right">
+                          <Button
+                            variant="contained"
+                            color="primary"
+                            onClick={() => {
+                              setOpen(true);
+                              setId(row._id);
+                            }}
+                          >
+                            Make Admin
+                          </Button>
+                        </TableCell>
+                      </TableRow>
+                    ))}
+                  </TableBody>
+                </Table>
+              </TableContainer>
+            </div>
+          )}
+        </div>
       </main>
       <Footer />
       <ConfirmModal

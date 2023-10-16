@@ -1,9 +1,27 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { IUser } from "../Admin/Users";
+import { doctors } from "../../staticData/doctors";
+import { IDoctor } from "../Admin/Doctors";
+import { IHospital } from "../../models/hospital";
+import { hospitals } from "../../staticData/hospitals";
 
-const initialState = {
-  user: {},
-  users: [] as any,
+export interface IUserState {
+  user: IUser | null;
+  users: IUser[];
+  admin: IUser[];
+  email: string;
+  doctorAppointment: any;
+  token: string;
+  appointmentID: string;
+  hospitalAppointment: any;
+  profileData: any;
+  doctors: IDoctor[];
+  hospitals: IHospital[];
+}
+
+const initialState: IUserState = {
+  user: null,
+  users: [],
   admin: [],
   email: "",
   doctorAppointment: {},
@@ -11,6 +29,8 @@ const initialState = {
   appointmentID: "",
   hospitalAppointment: {},
   profileData: {},
+  doctors: doctors,
+  hospitals: hospitals,
 };
 
 const userSlice: any = createSlice({
@@ -51,6 +71,12 @@ const userSlice: any = createSlice({
     setUsers: (state, action) => {
       state.users = action.payload;
     },
+    addDoctor: (state, action) => {
+      state.doctors = [...state.doctors, action.payload];
+    },
+    addHospital: (state, action) => {
+      state.hospitals = [...state.hospitals, action.payload];
+    },
   },
 });
 
@@ -65,6 +91,8 @@ export const {
   setProfileData,
   makeAdmin,
   setUsers,
+  addDoctor,
+  addHospital,
 } = userSlice.actions;
 
 export default userSlice.reducer;

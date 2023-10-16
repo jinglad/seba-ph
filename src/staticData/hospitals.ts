@@ -53,6 +53,7 @@ export const hospitals = [
     location: "123 Main Street, Anytown USA",
     phone: "555-555-5555",
     city: "dhaka",
+    place: "Madina-Market",
     thumbnail: "/images/hospitals/hospital-2.png",
     tests: [
       { name: "COVID-19", price: 100 },
@@ -101,6 +102,7 @@ export const hospitals = [
     city: "chittagong",
     phone: "555-555-5555",
     thumbnail: "/images/hospitals/hospital-3.png",
+    place: "Madina-Market",
     tests: [
       { name: "COVID-19", price: 100 },
       { name: "influenza", price: 25 },
@@ -146,6 +148,7 @@ export const hospitals = [
     name: "Anytown General Hospital",
     location: "123 Main Street, Anytown USA",
     city: "sylhet",
+    place: "Madina-Market",
     phone: "555-555-5555",
     thumbnail: "/images/hospitals/hospital-1.png",
     tests: [
@@ -193,6 +196,7 @@ export const hospitals = [
     name: "Anytown Medical Center",
     location: "123 Main Street, Anytown USA",
     city: "khulna",
+    place: "Madina-Market",
     phone: "555-555-5555",
     thumbnail: "/images/hospitals/hospital-2.png",
     tests: [
@@ -240,6 +244,7 @@ export const hospitals = [
     name: "Anytown General Hospital",
     location: "123 Main Street, Anytown USA",
     city: "sylhet",
+    place: "Madina-Market",
     phone: "555-555-5555",
     thumbnail: "/images/hospitals/hospital-1.png",
     tests: [

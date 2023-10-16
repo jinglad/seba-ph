@@ -38,6 +38,10 @@ import Dashboard from "./components/Dashboard/Dashboard";
 import Profile from "./components/Profile/Profile";
 import AdminRoute from "./components/PrivateRoute/AdminRoute";
 import Users from "./components/Admin/Users";
+import Doctors from "./components/Admin/Doctors";
+import Hospitals from "./components/Admin/Hospitals";
+import DoctorsAppointments from "./components/Admin/DoctorsAppointments";
+import HospitalsAppointment from "./components/Admin/HospitalsAppointment";
 
 function App() {
   const store = useStore();
@@ -154,6 +158,38 @@ function App() {
                   element={
                     <AdminRoute>
                       <Users />
+                    </AdminRoute>
+                  }
+                />
+                <Route
+                  path="/admin/doctors"
+                  element={
+                    <AdminRoute>
+                      <Doctors />
+                    </AdminRoute>
+                  }
+                />
+                <Route
+                  path="/admin/hospitals"
+                  element={
+                    <AdminRoute>
+                      <Hospitals />
+                    </AdminRoute>
+                  }
+                />
+                <Route
+                  path="/admin/doctors-bookings"
+                  element={
+                    <AdminRoute>
+                      <DoctorsAppointments />
+                    </AdminRoute>
+                  }
+                />
+                <Route
+                  path="/admin/hospitals-bookings"
+                  element={
+                    <AdminRoute>
+                      <HospitalsAppointment />
                     </AdminRoute>
                   }
                 />
