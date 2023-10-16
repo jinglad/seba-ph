@@ -24,3 +24,32 @@ export const useDoctorAppointment = () => {
     }
   );
 };
+
+export const useDoctorAppointments = ({
+  token,
+  page,
+}: {
+  token: string;
+  page: number;
+}) => {
+  return useQuery(
+    ["doctorAppointments", page],
+    async () => {
+      const { data } = await Axios.get("/api/doctor-appointment", {
+        headers: {
+          authorization: `Bearer ${token}`,
+        },
+        params: {
+          page,
+          pageSize: 10,
+        },
+      });
+      return data;
+    },
+    {
+      refetchOnWindowFocus: false,
+      refetchOnMount: false,
+      retry: false,
+    }
+  );
+};
