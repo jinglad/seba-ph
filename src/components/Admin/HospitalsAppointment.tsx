@@ -69,7 +69,7 @@ const HospitalsAppointment = () => {
                         Phone
                       </TableCell>
                       <TableCell align="center" sx={{ fontWeight: "bold" }}>
-                        Hospital
+                        Email
                       </TableCell>
                       <TableCell align="center" sx={{ fontWeight: "bold" }}>
                         Status
@@ -92,7 +92,7 @@ const HospitalsAppointment = () => {
                             {row.fullName}
                           </TableCell>
                           <TableCell align="center">{row.phone}</TableCell>
-                          <TableCell align="center">{row.hospital}</TableCell>
+                          <TableCell align="center">{row.email}</TableCell>
                           <TableCell align="center">{row.status}</TableCell>
                           <TableCell align="right">
                             {row.transactionId}

@@ -42,6 +42,9 @@ const Doctors = () => {
   const navigate = useNavigate();
   const { doctors } = useSelector((state: any) => state.user);
   const [open, setOpen] = useState(false);
+
+  console.log(doctors);
+
   return (
     <>
       <Header />

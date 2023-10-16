@@ -131,7 +131,7 @@ export const doctors = [
     rating: 4.5,
     degree: "MBBS, MD - General Medicine, DM - Neurology",
     experience: "15 Years",
-    place: "Madina-Market",
+    place: "Rajshahi-Market",
     fee: 700,
     about:
       "Dr. Robert Gill is a Neurologist in Sector 51, Noida and has an experience of 15 years in this field. Dr. Robert Gill practices at Fortis Hospital in Sector 51, Noida. He completed MBBS from University of Delhi in 2001, MD - General Medicine from University of Delhi in 2005 and DM - Neurology from University of Delhi in 2009.",
@@ -194,7 +194,7 @@ export const doctors = [
     rating: 4.5,
     degree: "MBBS, MD - General Medicine, DM - Dentistry",
     experience: "15 Years",
-    place: "Madina-Market",
+    place: "Rajshahi-Market",
     fee: 500,
     about:
       "Dr. Robert Gill is a Neurologist in Sector 51, Noida and has an experience of 15 years in this field. Dr. Robert Gill practices at Fortis Hospital in Sector 51, Noida. He completed MBBS from University of Delhi in 2001, MD - General Medicine from University of Delhi in 2005 and DM - Neurology from University of Delhi in 2009.",
@@ -253,7 +253,7 @@ export const doctors = [
     rating: 4.5,
     degree: "MBBS, MD - General Medicine, DM - Neurology",
     experience: "15 Years",
-    place: "Madina-Market",
+    place: "Dhaka-Market",
     fee: 550,
     about:
       "Dr. Robert Gill is a Neurologist in Sector 51, Noida and has an experience of 15 years in this field. Dr. Robert Gill practices at Fortis Hospital in Sector 51, Noida. He completed MBBS from University of Delhi in 2001, MD - General Medicine from University of Delhi in 2005 and DM - Neurology from University of Delhi in 2009.",
@@ -316,7 +316,7 @@ export const doctors = [
     rating: 4.5,
     degree: "MBBS, MD - General Medicine, DM - Dentistry",
     experience: "15 Years",
-    place: "Madina-Market",
+    place: "Chittagong-Market",
     fee: 580,
     about:
       "Dr. Robert Gill is a Neurologist in Sector 51, Noida and has an experience of 15 years in this field. Dr. Robert Gill practices at Fortis Hospital in Sector 51, Noida. He completed MBBS from University of Delhi in 2001, MD - General Medicine from University of Delhi in 2005 and DM - Neurology from University of Delhi in 2009.",
@@ -375,7 +375,7 @@ export const doctors = [
     rating: 4.5,
     degree: "MBBS, MD - General Medicine, DM - Neurology",
     experience: "15 Years",
-    place: "Madina-Market",
+    place: "Chittagong-Market",
     fee: 610,
     about:
       "Dr. Robert Gill is a Neurologist in Sector 51, Noida and has an experience of 15 years in this field. Dr. Robert Gill practices at Fortis Hospital in Sector 51, Noida. He completed MBBS from University of Delhi in 2001, MD - General Medicine from University of Delhi in 2005 and DM - Neurology from University of Delhi in 2009.",
@@ -438,7 +438,7 @@ export const doctors = [
     rating: 4.5,
     degree: "MBBS, MD - General Medicine, DM - Dentistry",
     experience: "15 Years",
-    place: "Madina-Market",
+    place: "Chittagong-Market",
     fee: 2500,
     about:
       "Dr. Robert Gill is a Neurologist in Sector 51, Noida and has an experience of 15 years in this field. Dr. Robert Gill practices at Fortis Hospital in Sector 51, Noida. He completed MBBS from University of Delhi in 2001, MD - General Medicine from University of Delhi in 2005 and DM - Neurology from University of Delhi in 2009.",

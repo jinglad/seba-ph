@@ -10,7 +10,9 @@ import {
   Grid,
   InputLabel,
   MenuItem,
+  Pagination,
   Select,
+  Stack,
 } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import { doctors } from "../../staticData/doctors";
@@ -21,7 +23,7 @@ const AllDoctors = () => {
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [selectedPlace, setSelectedPlace] = useState("All");
   const [selectedPrice, setSelectedPrice] = useState("default");
-  const [allDoctors, setAllDoctors] = useState<any>(doctors);
+  const [allDoctors, setAllDoctors] = useState<any>(doctors?.slice(0, 5));
   const navigate = useNavigate();
   const handleCategoryChange = (event: any) => {
     setSelectedCategory(event.target.value);
@@ -57,15 +59,15 @@ const AllDoctors = () => {
   const handlePriceChange = (event: any) => {
     setSelectedPrice(event.target.value);
     if (event.target.value === "default") {
-      setAllDoctors(doctors);
+      setAllDoctors(doctors?.slice(0, 5));
     } else if (event.target.value === "low") {
-      const sortedDoctors = doctors.sort((a: any, b: any) => {
+      console.log(allDoctors);
+      const sortedDoctors = allDoctors.sort((a: any, b: any) => {
         return a.fee - b.fee;
       });
-      console.log(sortedDoctors);
       setAllDoctors(sortedDoctors);
     } else if (event.target.value === "high") {
-      const sortedDoctors = doctors.sort((a: any, b: any) => {
+      const sortedDoctors = allDoctors.sort((a: any, b: any) => {
         return b.fee - a.fee;
       });
       setAllDoctors(sortedDoctors);
@@ -78,10 +80,17 @@ const AllDoctors = () => {
     { name: "High to Low", value: "high" },
   ];
 
+  const handlePagination = (page: number) => {
+    const pageSize = 5;
+    const startIndex = (page - 1) * pageSize;
+    const selectedDoctors = doctors?.slice(startIndex, startIndex + pageSize);
+    setAllDoctors(selectedDoctors);
+  };
+
   return (
     <div>
       <Header />
-      <Container fixed sx={{ my: 10 }}>
+      <Container fixed sx={{ my: 10, minHeight: "50vh" }}>
         <div className="flex justify-between items-center mb-10">
           <h1 className="text-3xl font-semibold">All Doctors</h1>
           <div className="w-[80%] flex">
@@ -109,7 +118,9 @@ const AllDoctors = () => {
                 id="category-select"
                 value={selectedPlace}
                 onChange={handlePlaceChange}
+                placeholder="Filter by places"
               >
+                <MenuItem value="All">All</MenuItem>
                 {places?.map((category: any) => (
                   <MenuItem key={category.id} value={category.name}>
                     {category.name}
@@ -161,20 +172,22 @@ const AllDoctors = () => {
               />
             </Grid>
           ))}
-          {allDoctors?.length === 0 && (
-            <div className="text-center w-full mt-10">
-              <h1 className="text-2xl font-semibold">No doctors found</h1>
-            </div>
-          )}
         </Grid>
+        {allDoctors?.length === 0 && (
+          <div className="text-center w-full mt-10">
+            <h1 className="text-2xl font-semibold">No doctors found</h1>
+          </div>
+        )}
+        {doctors?.length > 5 && (
+          <Stack spacing={2} mt={5}>
+            <Pagination
+              onChange={(e, page) => handlePagination(page)}
+              count={Math.ceil(doctors?.length / 5)}
+            />
+          </Stack>
+        )}
       </Container>
-      {allDoctors?.length > 0 ? (
-        <Footer />
-      ) : (
-        <div className="fixed bottom-0 w-full">
-          <Footer />
-        </div>
-      )}
+      <Footer />
     </div>
   );
 };

@@ -70,7 +70,7 @@ const DoctorsAppointments = () => {
                         Phone
                       </TableCell>
                       <TableCell align="center" sx={{ fontWeight: "bold" }}>
-                        Doctor
+                        Department
                       </TableCell>
                       <TableCell align="center" sx={{ fontWeight: "bold" }}>
                         Status
@@ -92,8 +92,8 @@ const DoctorsAppointments = () => {
                           {row.fullName}
                         </TableCell>
                         <TableCell align="center">{row.phone}</TableCell>
-                        <TableCell align="center">{row.doctor}</TableCell>
-                        <TableCell align="right">{row.status}</TableCell>
+                        <TableCell align="center">{row.department}</TableCell>
+                        <TableCell align="center">{row.status}</TableCell>
                         <TableCell align="right">{row.transactionId}</TableCell>
                       </TableRow>
                     ))}
@@ -104,15 +104,6 @@ const DoctorsAppointments = () => {
                 <Pagination
                   onChange={(e, page) => setPage(page)}
                   count={data?.totalPages}
-                  renderItem={(item) => (
-                    <PaginationItem
-                      slots={{
-                        previous: ArrowBackIcon,
-                        next: ArrowForwardIcon,
-                      }}
-                      {...item}
-                    />
-                  )}
                 />
               </Stack>
             </>
