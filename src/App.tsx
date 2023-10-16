@@ -68,14 +68,7 @@ function App() {
                     </PrivateRoute>
                   }
                 />
-                <Route
-                  path="/hospitals/:id"
-                  element={
-                    <PrivateRoute>
-                      <SingleHospital />
-                    </PrivateRoute>
-                  }
-                />
+                <Route path="/hospitals/:id" element={<SingleHospital />} />
                 <Route
                   path="/payment"
                   element={
